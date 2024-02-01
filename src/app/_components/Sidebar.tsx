@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "../../../lib/utils";
-import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
 
 const Sidebar = () => {

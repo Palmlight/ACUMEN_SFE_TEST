@@ -7,10 +7,12 @@ import { getMessages } from "../../../../services";
 import { IMessage, IMeta } from "../../../../services/type";
 import ChatListing from "./ChatListing";
 import Pagination from "./Pagination";
+import FilterModal from "./FilterModal";
 
 const ChatTable = () => {
   const [page, setPage] = useState(1);
-  const { isLoading, data } = useQuery<{
+  const [showFilter, setShowFilter] = useState(false);
+  const { data } = useQuery<{
     data: { data: IMessage[] } & IMeta;
   }>({
     queryFn: () => getMessages(page),
@@ -30,12 +32,16 @@ const ChatTable = () => {
           <p className="text-[#5A483C]">Groups</p>
         </div>
 
-        <div className="rounded-lg border border-[#C1CEC8] pl-5 pr-4 py-3 w-[264px] flex items-center justify-between">
+        <div
+          className="rounded-lg border border-[#C1CEC8] pl-5 pr-4 py-3 w-[264px] flex items-center justify-between"
+          onClick={() => setShowFilter(true)}
+        >
           <p className="text-sm text-[#8D9091]">Search...</p>
           <Image src="/mask.svg" height={19} width={19} alt="search" />
         </div>
       </div>
 
+      {showFilter && <FilterModal close={() => setShowFilter(false)} />}
       <div className="border border-[#E7E9FF] mt-5 mb-10 bg-white pb-[34px] pt-[24px]">
         <div className="grid gap-5 grid-cols-[1fr_160px_180px_120px_110px_40px] px-[55px] text-sm text-[#9999BC] uppercase pb-3 border-b border-b-[#00000010]">
           <p className="">USERS</p>

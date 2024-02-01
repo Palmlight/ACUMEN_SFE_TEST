@@ -25,7 +25,7 @@ export default function RootLayout({
     <QueryProvider>
       <html lang="en">
         <body
-          className={`${Hanken.variable} font-hanken grid grid-cols-[270px_1fr] min-h-screen`}
+          className={`${Hanken.variable} font-hanken grid grid-cols-[270px_1fr] min-h-screen relative`}
         >
           <Sidebar />
           <div className="w-full h-full bg-[#F3F7FF]">
