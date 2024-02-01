@@ -22,7 +22,8 @@ const config: Config = {
         toneBlue: "#F5F7FC",
         robinOrange: "#EA8D51",
         robinRed: "#D53120",
-        robinBlue: "#4568D1"
+        robinBlue: "#4568D1",
+        robinGreen: "#15AE73"
       }
     }
   },
